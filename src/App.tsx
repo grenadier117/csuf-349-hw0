@@ -1,5 +1,3 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import otter1 from './assets/otter1.jpg';
 import otter2 from './assets/otter2.jpg';
