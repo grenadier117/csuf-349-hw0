@@ -5,7 +5,7 @@ import otter3 from './assets/otter3.jpg';
 import otter4 from './assets/otter4.jpg';
 import otter5 from './assets/otter5.jpg';
 
-function App() {
+const App = (): JSX.Element => {
   return (
     <div>
       <header>
@@ -40,6 +40,6 @@ function App() {
       </ul>
     </div>
   );
-}
+};
 
 export default App;
