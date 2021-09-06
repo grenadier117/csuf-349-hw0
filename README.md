@@ -1,3 +1,6 @@
+# VIEW PROJECT RESULT (Homework 0)
+This project can be viewed [Here](http://csuf-349-hw0.gonecoding.io/)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
