@@ -79,13 +79,13 @@ const App = (): JSX.Element => {
           <li className="thumbnail-item">
             <a href="#">
               <img className="thumbnail-image screenshot" src={flexboxFroggy} alt="Flexbox Froggy"></img>{' '}
-              <span className="thumbnail-title">Barry</span>
+              <span className="thumbnail-title">Flexbox Froggy</span>
             </a>
           </li>
           <li className="thumbnail-item">
             <a href="#">
               <img className="thumbnail-image screenshot" src={gridGarden} alt="Grid Garden"></img>{' '}
-              <span className="thumbnail-title">Robin</span>
+              <span className="thumbnail-title">Grid Garden</span>
             </a>
           </li>
         </ul>
