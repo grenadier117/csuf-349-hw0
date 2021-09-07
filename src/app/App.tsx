@@ -1,9 +1,9 @@
 import './App.css';
-import otter1 from '../assets/otter1.jpg';
-import otter2 from '../assets/otter2.jpg';
-import otter3 from '../assets/otter3.jpg';
-import otter4 from '../assets/otter4.jpg';
-import otter5 from '../assets/otter5.jpg';
+import otter1 from '../img/otter1.jpg';
+import otter2 from '../img/otter2.jpg';
+import otter3 from '../img/otter3.jpg';
+import otter4 from '../img/otter4.jpg';
+import otter5 from '../img/otter5.jpg';
 import React from 'react';
 
 const App = (): JSX.Element => {
