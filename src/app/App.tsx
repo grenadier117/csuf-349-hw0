@@ -4,6 +4,8 @@ import otter2 from '../img/otter2.jpg';
 import otter3 from '../img/otter3.jpg';
 import otter4 from '../img/otter4.jpg';
 import otter5 from '../img/otter5.jpg';
+import flexboxFroggy from '../img/Screen Shot 2021-09-06 at 5.50.39 PM.png';
+import gridGarden from '../img/Screen Shot 2021-09-06 at 6.12.10 PM.png';
 import React from 'react';
 
 const App = (): JSX.Element => {
@@ -72,6 +74,18 @@ const App = (): JSX.Element => {
             <a href="#">
               <img className="thumbnail-image" src={otter5} alt="Barbara the Otter"></img>{' '}
               <span className="thumbnail-title">Barbara</span>
+            </a>
+          </li>
+          <li className="thumbnail-item">
+            <a href="#">
+              <img className="thumbnail-image screenshot" src={flexboxFroggy} alt="Flexbox Froggy"></img>{' '}
+              <span className="thumbnail-title">Barry</span>
+            </a>
+          </li>
+          <li className="thumbnail-item">
+            <a href="#">
+              <img className="thumbnail-image screenshot" src={gridGarden} alt="Grid Garden"></img>{' '}
+              <span className="thumbnail-title">Robin</span>
             </a>
           </li>
         </ul>
