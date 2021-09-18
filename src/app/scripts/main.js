@@ -1,5 +1,3 @@
-console.log('@JAKE - test');
-
 var DETAIL_IMAGE_SELECTOR = '[data-image-role="target"]';
 var DETAIL_TITLE_SELECTOR = '[data-image-role="title"]';
 var DETAIL_FRAME_SELECTOR = '[data-image-role="frame"]';
@@ -55,7 +53,6 @@ function hideDetails() {
 function addKeyPressHandler() {
   document.body.addEventListener('keyup', function (event) {
     event.preventDefault();
-    console.log(event.keyCode);
     if (event.keyCode === ESC_KEY) {
       hideDetails();
     }
@@ -72,16 +69,14 @@ function showDetails() {
 }
 
 function addButtonClickHandlers() {
-  document.querySelector(PREV_BUTTON).addEventListener('click', function (event) {
-    console.log('@JAKE - prev clicked');
+  document.querySelector(PREV_BUTTON).addEventListener('click', function () {
     const imageList = getThumbnailsArray();
     if (currentImageIndex === 0) currentImageIndex = imageList.length - 1;
     else currentImageIndex--;
     setDetailsFromThumb(imageList[currentImageIndex]);
   });
 
-  document.querySelector(NEXT_BUTTON).addEventListener('click', function (event) {
-    console.log('@JAKE - next clicked');
+  document.querySelector(NEXT_BUTTON).addEventListener('click', function () {
     const imageList = getThumbnailsArray();
     if (currentImageIndex === imageList.length - 1) currentImageIndex = 0;
     else currentImageIndex++;
