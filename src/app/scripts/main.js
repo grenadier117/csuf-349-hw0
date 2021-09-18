@@ -10,7 +10,6 @@ var ESC_KEY = 27;
 let currentImageIndex = 0;
 
 function setDetails(imageUrl, titleText) {
-  // 'use strict';
   var detailImage = document.querySelector(DETAIL_IMAGE_SELECTOR);
   detailImage.setAttribute('src', imageUrl);
 
@@ -19,7 +18,6 @@ function setDetails(imageUrl, titleText) {
 }
 
 function imageFromThumb(thumbnail) {
-  // 'use strict';
   return thumbnail.getAttribute('data-image-url');
 }
 
