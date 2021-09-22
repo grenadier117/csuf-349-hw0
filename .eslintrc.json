@@ -34,6 +34,7 @@
         "**/*.js?(x)"
       ],
       "rules": {
+        "no-empty-function": "off",
         "prettier/prettier": [
           "warn",
           {
