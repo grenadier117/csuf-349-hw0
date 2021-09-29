@@ -9,10 +9,10 @@ const App = (): JSX.Element => {
   useEffect(() => {
     initialize();
     initializeTruck();
-    initializeMain();
     // wait for initialization of JQuery
     setTimeout(() => {
       initializeFormHandler();
+      initializeMain();
     }, 200);
   }, []);
 
@@ -36,7 +36,7 @@ const App = (): JSX.Element => {
                   type="email"
                   name="emailAddress"
                   id="emailInput"
-                  value=""
+                  // value=""
                   placeholder="dr@who.com"
                 />{' '}
               </div>
