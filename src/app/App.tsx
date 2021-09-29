@@ -4,6 +4,7 @@ import { initialize } from './scripts/datastore';
 import { initializeTruck } from './scripts/truck';
 import { initializeMain } from './scripts/main';
 import { initializeFormHandler } from './scripts/formhandler';
+import { initializeChecklist } from './scripts/checklist';
 
 const App = (): JSX.Element => {
   useEffect(() => {
@@ -11,6 +12,7 @@ const App = (): JSX.Element => {
     initializeTruck();
     // wait for initialization of JQuery
     setTimeout(() => {
+      initializeChecklist();
       initializeFormHandler();
       initializeMain();
     }, 200);
@@ -69,7 +71,7 @@ const App = (): JSX.Element => {
               </div>
               <div className="form-group">
                 <label htmlFor="strengthLevel">Caffeine Rating</label>
-                <input name="strength" id="strengthLevel" type="range" value="30" />
+                <input name="strength" id="strengthLevel" type="range" />
               </div>
               <button type="submit" className="btn btn-default">
                 Submit
@@ -78,6 +80,13 @@ const App = (): JSX.Element => {
                 Reset
               </button>
             </form>
+          </div>
+        </div>
+        <div className="panel panel-default">
+          {' '}
+          <div className="panel-body">
+            <h4>Pending Orders:</h4>
+            <div data-coffee-order="checklist"> </div>
           </div>
         </div>
       </section>
