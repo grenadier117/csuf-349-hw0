@@ -7,7 +7,6 @@ export function initializeFormHandler() {
       throw new Error('No selector provided');
     }
     this.$formElement = $(selector);
-    console.log('@JAKE - form element', this.$formElement);
     if (this.$formElement.length === 0) {
       throw new Error('Could not find element with selector: ' + selector);
     }

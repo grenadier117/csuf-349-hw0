@@ -6,6 +6,7 @@ import { initializeMain } from './scripts/main';
 import { initializeFormHandler } from './scripts/formhandler';
 import { initializeChecklist } from './scripts/checklist';
 import { initializeValidation } from './scripts/validation';
+import { initializeRemoteDataStore } from './scripts/remotedatastore';
 
 const App = (): JSX.Element => {
   useEffect(() => {
@@ -16,6 +17,7 @@ const App = (): JSX.Element => {
       initializeChecklist();
       initializeFormHandler();
       initializeValidation();
+      initializeRemoteDataStore();
       initializeMain();
     }, 200);
   }, []);
