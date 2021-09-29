@@ -5,6 +5,7 @@ import { initializeTruck } from './scripts/truck';
 import { initializeMain } from './scripts/main';
 import { initializeFormHandler } from './scripts/formhandler';
 import { initializeChecklist } from './scripts/checklist';
+import { initializeValidation } from './scripts/validation';
 
 const App = (): JSX.Element => {
   useEffect(() => {
@@ -14,6 +15,7 @@ const App = (): JSX.Element => {
     setTimeout(() => {
       initializeChecklist();
       initializeFormHandler();
+      initializeValidation();
       initializeMain();
     }, 200);
   }, []);
@@ -29,7 +31,14 @@ const App = (): JSX.Element => {
             <form data-coffee-order="form">
               <div className="form-group">
                 <label htmlFor="coffeeOrder">Coffee Order</label>
-                <input className="form-control" name="coffee" id="coffeeOrder" autoFocus />{' '}
+                <input
+                  className="form-control"
+                  name="coffee"
+                  id="coffeeOrder"
+                  autoFocus
+                  required
+                  pattern="[a-zA-Z\s]+"
+                />{' '}
               </div>
               <div className="form-group">
                 <label htmlFor="emailInput">Email</label>
@@ -40,6 +49,7 @@ const App = (): JSX.Element => {
                   id="emailInput"
                   // value=""
                   placeholder="dr@who.com"
+                  required
                 />{' '}
               </div>
               <div className="radio">
