@@ -13,7 +13,6 @@ import { initializeMain } from 'app/scripts/main';
 
 export const Home = () => {
   const [isPayment, setIsPayment] = useState<boolean>(false);
-  const [name, setName] = useState<string | null>(null);
 
   useEffect(() => {
     if ((window as any).jQuery) {
@@ -32,9 +31,6 @@ export const Home = () => {
   };
 
   const navigateBack = () => {
-    (window as any).myTruck.getOrder((window as any).App.editingOrder).then(val => {
-      setName(val.username);
-    });
     openModal();
     setIsPayment(false);
   };
@@ -124,7 +120,7 @@ export const Home = () => {
       <div style={{ display: isPayment ? 'block' : 'none' }}>
         <Payment navigateBack={navigateBack} />
       </div>
-      <PaymentConfirmation name={name} />
+      <PaymentConfirmation />
     </React.Fragment>
   );
 };
