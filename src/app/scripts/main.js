@@ -17,6 +17,7 @@ export function initializeMain(navigateToPayment) {
   var formHandler = new FormHandler(FORM_SELECTOR);
 
   formHandler.addSubmitHandler(function (data) {
+    // TODO: Don't create order until payment is made
     return myTruck.createOrder.call(myTruck, data).then(function () {
       checkList.addRow.call(checkList, data);
       window.App.editingOrder = data.emailAddress;

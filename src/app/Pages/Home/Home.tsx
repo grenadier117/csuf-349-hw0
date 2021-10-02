@@ -10,6 +10,7 @@ import { PaymentConfirmation } from '../PaymentConfirmation/PaymentConfirmation'
 import { Payment } from '../Payment/Payment';
 import { openModal } from 'app/scripts/payment';
 import { initializeMain } from 'app/scripts/main';
+import clsx from 'clsx';
 
 export const Home = () => {
   const [isPayment, setIsPayment] = useState<boolean>(false);
@@ -37,7 +38,11 @@ export const Home = () => {
 
   return (
     <React.Fragment>
-      <div style={{ display: !isPayment ? 'block' : 'none' }}>
+      <div
+        className={clsx({
+          'page-hidden': isPayment,
+        })}
+      >
         {' '}
         <header>
           <h1>CoffeeRun</h1>
@@ -117,7 +122,11 @@ export const Home = () => {
           </div>
         </section>
       </div>
-      <div style={{ display: isPayment ? 'block' : 'none' }}>
+      <div
+        className={clsx({
+          'page-hidden': !isPayment,
+        })}
+      >
         <Payment navigateBack={navigateBack} />
       </div>
       <PaymentConfirmation />
