@@ -14,6 +14,12 @@ export function initialize() {
   }
 
   DataStore.prototype.add = function (key, val) {
+    this.data[key] = val;
+    return promiseResolvedWith(null);
+  };
+
+  DataStore.prototype.addPayment = function (key, val) {
+    this.data[key] = { ...this.data[key], ...val };
     return promiseResolvedWith(null);
   };
 

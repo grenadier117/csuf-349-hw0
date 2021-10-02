@@ -25,7 +25,9 @@
   "rules": {
     "react/react-in-jsx-scope": "off",
     "react/react-in-tsx-scope": "off",
-    "@typescript-eslint/explicit-module-boundary-types": "off"
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "react/prop-types": "off"
   },
   "overrides": [
     {
@@ -34,6 +36,8 @@
         "**/*.js?(x)"
       ],
       "rules": {
+        "no-debugger": "off",
+        "no-explicit-any": "off",
         "no-empty-function": "off",
         "prettier/prettier": [
           "warn",

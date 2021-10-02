@@ -18,8 +18,11 @@ export function initializeChecklist() {
       'input',
       function (event) {
         var email = event.target.value;
-        this.removeRow(email);
-        fn(email);
+        fn(email).then(
+          function () {
+            this.removeRow(email);
+          }.bind(this),
+        );
       }.bind(this),
     );
   };
@@ -31,6 +34,12 @@ export function initializeChecklist() {
     var rowElement = new Row(coffeeOrder);
     // Add the new row instance's $element property to the checklist
     this.$element.append(rowElement.$element);
+  };
+
+  CheckList.prototype.addAll = function (orders) {
+    Object.values(orders).forEach(item => {
+      this.addRow(item);
+    });
   };
 
   CheckList.prototype.removeRow = function (email) {

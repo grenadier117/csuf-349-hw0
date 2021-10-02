@@ -1,4 +1,4 @@
-export function initializeMain() {
+export function initializeMain(navigateToPayment) {
   var App = window.App;
   var FORM_SELECTOR = '[data-coffee-order="form"]';
   var CHECKLIST_SELECTOR = '[data-coffee-order="checklist"]';
@@ -19,6 +19,8 @@ export function initializeMain() {
   formHandler.addSubmitHandler(function (data) {
     return myTruck.createOrder.call(myTruck, data).then(function () {
       checkList.addRow.call(checkList, data);
+      window.App.editingOrder = data.emailAddress;
+      navigateToPayment();
     });
   });
 

@@ -16,6 +16,18 @@ export function initializeTruck() {
     return this.db.remove(customerId);
   };
 
+  Truck.prototype.getAllOrders = function () {
+    return this.db.getAll();
+  };
+
+  Truck.prototype.addPayment = function (email, val) {
+    return this.db.addPayment(email, val);
+  };
+
+  Truck.prototype.getOrder = function (key) {
+    return this.db.get(key);
+  };
+
   Truck.prototype.printOrders = function (printFn) {
     return this.db.getAll().then(
       function (orders) {
