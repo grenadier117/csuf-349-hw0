@@ -1,26 +1,16 @@
 import { initializeFormHandler } from 'app/scripts/formhandler';
+import { initializePayment } from 'app/scripts/payment';
 import React from 'react';
 import './Payment.css';
 
 export const Payment = ({ navigateBack }: { navigateBack: () => void }) => {
-  let App;
-  const PAYMENT_SELECTOR = '[data-payment-order="form"]';
-  let FormHandler;
-  let formHandler;
   React.useEffect(() => {
     if ((window as any).jQuery) {
       initializeFormHandler();
-      App = (window as any).App;
-      FormHandler = App.FormHandler;
-      formHandler = new FormHandler(PAYMENT_SELECTOR);
-      formHandler.addSubmitHandler(data => {
-        return new Promise(() => {
-          (window as any).myTruck.addPayment((window as any).App.editingOrder, data);
-          navigateBack();
-        });
-      });
+      initializePayment(navigateBack);
     }
   }, [(window as any).jQuery]);
+
   return (
     <form data-payment-order="form">
       <section>
@@ -49,63 +39,95 @@ export const Payment = ({ navigateBack }: { navigateBack: () => void }) => {
           </ul>
         </fieldset>
         <p>
-          <label htmlFor="name">
-            <span>Name: </span>
-            <strong>
-              <abbr title="required">*</abbr>
-            </strong>
-          </label>
-          <input type="text" id="name" name="username" />
+          <table className="payment-table">
+            <tr>
+              <td>
+                <label htmlFor="name">
+                  <span>Name: </span>
+                  <strong>
+                    <abbr title="required">*</abbr>
+                  </strong>
+                </label>
+              </td>
+              <td>
+                <input type="text" id="name" name="username" required />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label htmlFor="mail">
+                  <span>E-mail: </span>
+                  <strong>
+                    <abbr title="required">*</abbr>
+                  </strong>
+                </label>
+              </td>
+              <td>
+                <input type="email" id="mail" name="usermail" required />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label htmlFor="pwd">
+                  <span>Password: </span>
+                  <strong>
+                    <abbr title="required">*</abbr>
+                  </strong>
+                </label>
+              </td>
+              <td>
+                <input type="password" id="pwd" name="password" />
+              </td>
+            </tr>
+          </table>
         </p>
-        <p>
-          <label htmlFor="mail">
-            <span>E-mail: </span>
-            <strong>
-              <abbr title="required">*</abbr>
-            </strong>
-          </label>
-          <input type="email" id="mail" name="usermail" />
-        </p>
-        <p>
-          <label htmlFor="pwd">
-            <span>Password: </span>
-            <strong>
-              <abbr title="required">*</abbr>
-            </strong>
-          </label>
-          <input type="password" id="pwd" name="password" />
-        </p>
+        <p></p>
       </section>
       <section>
         <h2>Payment information</h2>
         <p>
-          <label htmlFor="card">
-            <span>Card type:</span>
-          </label>
-          <select id="card" name="usercard">
-            <option value="visa">Visa</option>
-            <option value="mc">Mastercard</option>
-            <option value="amex">American Express</option>
-          </select>
-        </p>
-        <p>
-          <label htmlFor="number">
-            <span>Card number:</span>
-            <strong>
-              <abbr title="required">*</abbr>
-            </strong>
-          </label>
-          <input type="tel" id="number" name="cardnumber" />
-        </p>
-        <p>
-          <label htmlFor="date">
-            <span>Expiration date:</span>
-            <strong>
-              <abbr title="required">*</abbr>
-            </strong>
-            <em>formatted as mm/dd/yyyy</em>
-          </label>
-          <input type="date" id="date" name="expiration" />
+          <table className="payment-table">
+            <tr>
+              <td>
+                <label htmlFor="card">
+                  <span>Card type:</span>
+                </label>
+              </td>
+              <td>
+                <select id="card" name="usercard">
+                  <option value="visa">Visa</option>
+                  <option value="mc">Mastercard</option>
+                  <option value="amex">American Express</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label htmlFor="number">
+                  <span>Card number:</span>
+                  <strong>
+                    <abbr title="required">*</abbr>
+                  </strong>
+                </label>
+              </td>
+              <td>
+                <input type="tel" id="number" name="cardnumber" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label htmlFor="date">
+                  <span>Expiration date:</span>
+                  <strong>
+                    <abbr title="required">*</abbr>
+                  </strong>
+                </label>
+              </td>
+              <td>
+                <input type="date" id="date" name="expiration" />
+              </td>
+            </tr>
+          </table>
         </p>
       </section>
       <button type="submit">SUBMIT</button>
