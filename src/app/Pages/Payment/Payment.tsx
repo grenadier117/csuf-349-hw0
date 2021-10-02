@@ -12,11 +12,10 @@ export const Payment = ({ navigateBack }: { navigateBack: () => void }) => {
   }, [(window as any).jQuery]);
 
   return (
-    <form data-payment-order="form">
+    <form data-payment-order="form" className="payment-form">
       <section>
         <h2>Contact information</h2>
         <fieldset>
-          <legend>Title</legend>
           <ul>
             <li>
               <label htmlFor="title_1">
