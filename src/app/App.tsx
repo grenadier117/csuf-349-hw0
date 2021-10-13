@@ -7,6 +7,8 @@ import { initializeFormHandler } from './scripts/formhandler';
 import { initializeChecklist } from './scripts/checklist';
 import { initializeValidation } from './scripts/validation';
 import { initializeRemoteDataStore } from './scripts/remotedatastore';
+import { initializeFirestore } from '@firebase/firestore/dist/lite';
+import { initializeFirebase } from './scripts/firebasedatastore';
 
 const App = (): JSX.Element => {
   useEffect(() => {
@@ -17,6 +19,7 @@ const App = (): JSX.Element => {
       initializeChecklist();
       initializeFormHandler();
       initializeValidation();
+      initializeFirebase();
       initializeRemoteDataStore();
       initializeMain();
     }, 200);
