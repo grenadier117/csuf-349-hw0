@@ -11,6 +11,7 @@ import { Payment } from '../Payment/Payment';
 import { openModal } from 'app/scripts/payment';
 import { initializeMain } from 'app/scripts/main';
 import clsx from 'clsx';
+import { initializeFirebase } from 'app/scripts/firebasedatastore';
 
 export const Home = () => {
   const [isPayment, setIsPayment] = useState<boolean>(false);
@@ -22,6 +23,7 @@ export const Home = () => {
       initializeChecklist();
       initializeFormHandler();
       initializeValidation();
+      initializeFirebase();
       initializeRemoteDataStore();
       initializeMain(navigateToPayment);
     }
