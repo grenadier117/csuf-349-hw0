@@ -1,10 +1,9 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs, doc, setDoc } from 'firebase/firestore/lite';
+import { getFirestore, collection, getDocs, doc, setDoc, where, query, deleteDoc } from 'firebase/firestore/lite';
 import { firebaseConfig } from './firebaseconfig';
 
 export function initializeFirebase() {
   var App = window.App || {};
-  var $ = window.jQuery;
 
   function FirebaseDataStore() {
     console.log('running the FireBaseDataStore function');
@@ -18,28 +17,26 @@ export function initializeFirebase() {
     return setDoc(docRef, val);
   };
 
-  FirebaseDataStore.prototype.get = async function (email, cb) {
-    const docRef = this.db.collection(`orders`);
-    const snapshot = await docRef.where('emailAddress', '==', email).get();
+  FirebaseDataStore.prototype.get = async function (email) {
+    const docRef = collection(this.db, `orders`);
+    const q = query(docRef, where('emailAddress', '==', email));
+    const snapshot = await getDocs(q);
     return await snapshot.docs.map(e => e.data());
   };
 
-  FirebaseDataStore.prototype.getAll = async function (cb) {
-    console.info('@JAKE - DB', this.db);
+  FirebaseDataStore.prototype.getAll = async function () {
     const docRef = collection(this.db, `orders`);
-    console.info('@JAKE - doc ref', docRef);
     const snapshot = await getDocs(docRef);
     return await snapshot.docs.map(e => e.data());
   };
 
   FirebaseDataStore.prototype.remove = async function (email) {
-    const docRef = await collection(this.db, `orders`);
-    const batch = this.db.batch();
-    const snapshot = await docRef.where('emailAddress', '==', email).get();
-    snapshot.forEach(doc => {
-      batch.delete(doc.ref);
+    const docRef = collection(this.db, `orders`);
+    const q = query(docRef, where('emailAddress', '==', email));
+    const snapshot = await getDocs(q);
+    snapshot.forEach(d => {
+      deleteDoc(d.ref);
     });
-    await batch.commit();
   };
 
   function makeDocHash(len) {

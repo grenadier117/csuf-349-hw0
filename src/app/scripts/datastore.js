@@ -7,13 +7,13 @@ export function initialize() {
   }
 
   function promiseResolvedWith(value) {
-    var promise = new Promise(function (resolve, reject) {
+    var promise = new Promise(function (resolve) {
       resolve(value);
     });
     return promise;
   }
 
-  DataStore.prototype.add = function (key, val) {
+  DataStore.prototype.add = function () {
     return promiseResolvedWith(null);
   };
 
@@ -33,29 +33,3 @@ export function initialize() {
   App.DataStore = DataStore;
   window.App = App;
 }
-
-// (function (window) {
-//   var App = window.App || {};
-//   function DataStore() {
-//     this.data = {};
-//   }
-
-//   DataStore.prototype.add = function (key, val) {
-//     this.data[key] = val;
-//   };
-
-//   DataStore.prototype.get = function (key) {
-//     return this.data[key];
-//   };
-
-//   DataStore.prototype.getAll = function () {
-//     return this.data;
-//   };
-
-//   DataStore.prototype.remove = function (key) {
-//     delete this.data[key];
-//   };
-
-//   App.DataStore = DataStore;
-//   window.App = App;
-// })(window);

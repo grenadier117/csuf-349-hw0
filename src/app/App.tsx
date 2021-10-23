@@ -7,7 +7,6 @@ import { initializeFormHandler } from './scripts/formhandler';
 import { initializeChecklist } from './scripts/checklist';
 import { initializeValidation } from './scripts/validation';
 import { initializeRemoteDataStore } from './scripts/remotedatastore';
-import { initializeFirestore } from '@firebase/firestore/dist/lite';
 import { initializeFirebase } from './scripts/firebasedatastore';
 
 const App = (): JSX.Element => {
@@ -105,6 +104,18 @@ const App = (): JSX.Element => {
           </div>
         </div>
       </section>
+      <div className="video">
+        <h3>Video Demonstration</h3>
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/O-1p002Sfgk"
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+      </div>
     </React.Fragment>
   );
 };
